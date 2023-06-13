@@ -1,0 +1,29 @@
+{
+  "name": "condo-app-server",
+  "version": "1.0.0",
+  "description": "backend for condo-app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seb-rios/condo-app-server.git"
+  },
+  "author": "Sebastian Rios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seb-rios/condo-app-server/issues"
+  },
+  "homepage": "https://github.com/seb-rios/condo-app-server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.2.4",
+    "nodemon": "^2.0.22"
+  }
+}
