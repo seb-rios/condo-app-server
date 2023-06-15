@@ -1,8 +1,9 @@
 const Invite = require("../models/invite.model");
+require("dotenv");
 
 const generateRandomNumber = () => {
-  const minValue = 0;
-  const maxValue = 9999;
+  const minValue = parseInt(process.env.MIN_CODE_VALUE);
+  const maxValue = parseInt(process.env.MAX_CODE_VALUE);
   const randomNumber =
     Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   return randomNumber.toString().padStart(4, "0");
