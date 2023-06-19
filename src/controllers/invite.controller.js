@@ -5,16 +5,25 @@ const { generateUniqueAccessCode } = libs;
 //GET: obtain all registered invites
 const getInvites = async (req, res) => {
   try {
-    const invite = await Invite.find();
-    res.json({ invite });
+    const invites = await Invite.find();
+    res.json({ invites });
   } catch (error) {
     res.json({ errorMessage: error });
   }
 };
 
-//GET: get ObjectId by username (invites)
-const getInviteIdByLogin = async (req, res) => {};
+//GET: get invite ObjectId by username
+const getInviteIdByResident = async (req, res) => {
+  const { residentId } = req.params;
 
+  try {
+    const invite = await Invite.find({ resident: { $in: residentId } });
+    res.json({ invite: invite });
+    console.log("GET by ID triggered: " + invite);
+  } catch (error) {
+    res.json({ errorMessage: error });
+  }
+};
 //POST: create a new invite
 const createInvite = async (req, res) => {
   const { resident, visit } = req.body;
@@ -44,4 +53,4 @@ const createInvite = async (req, res) => {
   }
 };
 
-module.exports = { getInvites, createInvite };
+module.exports = { getInvites, createInvite, getInviteIdByResident };

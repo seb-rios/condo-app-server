@@ -9,6 +9,7 @@ require("dotenv");
 const residentRoute = require("./routes/resident.route");
 const visitRoute = require("./routes/visit.route");
 const inviteRoute = require("./routes/invite.route");
+const codeRouter = require("./routes/code.route");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
 app.use("/resident", residentRoute);
 app.use("/visit", visitRoute);
 app.use("/invite", inviteRoute);
+app.use("/code", codeRouter);
 
 app.get("/", (req, res) => [
   res.send({
